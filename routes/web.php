@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,11 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', array(
-    'as'=> 'home',
-    'uses'=>'Controller@homeMethod'
-));
-
 Route::get('/compte', array(
     'as'=> 'compte',
     'uses'=>'Controller@compteMethod'
@@ -27,3 +23,7 @@ Route::get('/compte', array(
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

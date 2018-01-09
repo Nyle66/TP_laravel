@@ -15,12 +15,11 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function homeMethod(){
-        return view('home');;
+        return view('home');
     }
 
     public function compteMethod(){
-        
-        return view('compte');;
+        return view('compte');
     }
 
 }
