@@ -11,7 +11,7 @@
 
                 {{ Form::open(array('url'=>'addBitcoin')) }}
                 
-                    {{Form::label('solde','Solde')}}
+                    {{Form::label('solde','Solde : ')}}
                     {{Form::number('solde')}}
         
                     {{Form::submit('Ajouter')}}
@@ -24,7 +24,7 @@
 
                 {{ Form::open(array('url'=>'addEtherium')) }}
                 
-                    {{Form::label('solde','Solde')}}
+                    {{Form::label('solde','Solde : ')}}
                     {{Form::number('solde')}}
         
                     {{Form::submit('Ajouter')}}

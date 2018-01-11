@@ -14,7 +14,41 @@
                         </div>
                     @endif
 
-                    <button><a href="{{ url('/addCompte') }}">Ajouter un Compte</a></button>
+                    <button><a href="{{ url('/addCompte') }}">Ajouter un Compte</a></button><br><br>
+                    <h2>Comptes Bitcoin :</h2>
+                    <?php 
+                    use App\Bitcoin;
+                    $etherium = Bitcoin::all();
+                    
+                    foreach ($etherium as $eth){
+
+                        $url = "/bitTrans/" . $eth->id;
+                        echo "Compte n°";
+                        echo $eth->id;
+                        echo "  -->  Solde : ";
+                        echo $eth->valeur;
+                        echo "<br><button><a href='" . $url . "'>Effectuer une transaction</a></button>";
+                        echo "<hr>";
+                    }
+                    ?>
+                    <hr>
+                    <h2>Comptes Etherium :</h2>
+                    <?php 
+                    use App\Etherium;
+                    $bitcoin = Etherium::all();
+                    
+                    foreach ($bitcoin as $bit){
+                                                
+                        $url = "/bitTrans/" . $bit->id;
+                        echo "Compte n°";
+                        echo $bit->id;
+                        echo "  -->  Solde : ";
+                        echo $bit->valeur;
+                        echo "<br><button><a href='" . $url . "'>Effectuer une transaction</a></button>";
+                        echo "<hr>";
+                    }
+                    ?>
+                    
                 </div>
             </div>
         </div>

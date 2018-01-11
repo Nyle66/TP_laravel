@@ -6,6 +6,7 @@ use App\Users;
 use App\Bitcoin;
 use App\Etherium;
 use App\Http\Requests\addBitcoinRequest;
+use App\Http\Requests\addEtheriumRequest;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -32,6 +33,25 @@ class Controller extends BaseController
         $bitcoin->user_id = 1;
         $bitcoin->valeur = $solde;
         $bitcoin->save();
+
+        return redirect()->back();
+    }
+
+    public function addEtheriumService(addEtheriumRequest $request)
+    {
+        $r = $request->all();
+
+        $solde = $r['solde'];
+
+        //$currentUser = $r[''];
+
+        $etherium = new Etherium();
+        $etherium->key = rand();
+        $etherium->user_id = 1;
+        $etherium->valeur = $solde;
+        // dump($etherium);
+        // die();
+        $etherium->save();
 
         return redirect()->back();
     }

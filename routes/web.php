@@ -26,6 +26,11 @@ Route::post('/addBitcoin',array(
     'uses'=>'Controller@addBitcoinService'
 ));
 
+Route::post('/addEtherium',array(
+    'as'=>'addEtherium',
+    'uses'=>'Controller@addEtheriumService'
+));
+
 
 
 
