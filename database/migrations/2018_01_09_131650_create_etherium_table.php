@@ -13,7 +13,7 @@ class CreateEtheriumTable extends Migration
      */
     public function up()
     {
-        Schema::create('etherium', function (Blueprint $table) {
+        Schema::create('etheriums', function (Blueprint $table) {
             $table->increments('id');
             $table->text('key');
             $table->integer('user_id');
@@ -29,6 +29,6 @@ class CreateEtheriumTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('etherium');
+        Schema::dropIfExists('etheriums');
     }
 }

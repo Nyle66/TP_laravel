@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <button><a href="{{ url('/addCompte') }}">Ajouter un Compte</a></button>
                 </div>
             </div>
         </div>

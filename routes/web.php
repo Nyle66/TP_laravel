@@ -16,9 +16,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/compte', array(
-    'as'=> 'compte',
-    'uses'=>'Controller@compteMethod'
+Route::get('/addCompte', array(
+    'as'=> 'addcompte',
+    'uses'=>'Controller@addCompteMethod'
+));
+
+Route::post('/addBitcoin',array(
+    'as'=>'addBitcoin',
+    'uses'=>'Controller@addBitcoinService'
 ));
 
 

@@ -13,7 +13,7 @@ class CreateBitcoinTable extends Migration
      */
     public function up()
     {
-        Schema::create('bitcoin', function (Blueprint $table) {
+        Schema::create('bitcoins', function (Blueprint $table) {
             $table->increments('id');
             $table->text('key');
             $table->integer('user_id');
@@ -29,6 +29,6 @@ class CreateBitcoinTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bitcoin');
+        Schema::dropIfExists('bitcoins');
     }
 }
