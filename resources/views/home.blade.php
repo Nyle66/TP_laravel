@@ -18,36 +18,34 @@
                     <h2>Comptes Bitcoin :</h2>
                     <?php 
                     use App\Bitcoin;
-                    $etherium = Bitcoin::all();
+                    $bitcoin = Bitcoin::all();
                     
-                    foreach ($etherium as $eth){
-
+                    foreach ($bitcoin as $bit){
+                        echo "Compte n°";
+                        echo $bit->id;
+                        echo "  -->  Solde : ";
+                        echo $bit->valeur;
+                        echo "<hr>";
+                    }
+                    ?>
+                    <button><a href="{{ url('/bitTrans') }}">Effectuer une transaction</a></button>
+                    <hr>
+                    <h2>Comptes Etherium :</h2>
+                    <?php 
+                    use App\Etherium;
+                    $etherium = Etherium::all();
+                    
+                    foreach ($etherium as $eth){                    
                         $url = "/bitTrans/" . $eth->id;
                         echo "Compte n°";
                         echo $eth->id;
                         echo "  -->  Solde : ";
                         echo $eth->valeur;
-                        echo "<br><button><a href='" . $url . "'>Effectuer une transaction</a></button>";
                         echo "<hr>";
                     }
                     ?>
+                    <button><a href="{{ url('/ethTrans') }}">Effectuer une transaction</a></button>
                     <hr>
-                    <h2>Comptes Etherium :</h2>
-                    <?php 
-                    use App\Etherium;
-                    $bitcoin = Etherium::all();
-                    
-                    foreach ($bitcoin as $bit){
-                                                
-                        $url = "/bitTrans/" . $bit->id;
-                        echo "Compte n°";
-                        echo $bit->id;
-                        echo "  -->  Solde : ";
-                        echo $bit->valeur;
-                        echo "<br><button><a href='" . $url . "'>Effectuer une transaction</a></button>";
-                        echo "<hr>";
-                    }
-                    ?>
                     
                 </div>
             </div>

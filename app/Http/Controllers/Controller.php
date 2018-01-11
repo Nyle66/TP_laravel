@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Users;
 use App\Bitcoin;
 use App\Etherium;
@@ -19,6 +20,10 @@ class Controller extends BaseController
 
     public function addCompteMethod(){
         return view('addCompte');
+    }
+
+    public function bitTransMethod(){
+        return view('bitTrans');
     }
 
     public function addBitcoinService(addBitcoinRequest $request)
@@ -54,6 +59,40 @@ class Controller extends BaseController
         $etherium->save();
 
         return redirect()->back();
+    }
+
+    public function bitTransactionMethod(Request $request)
+    {
+        $r = $request->all();
+
+        $montant = $r['montant'];
+        $compteD = $r['compteD'];
+        $compteC = $r['compteC'];
+
+        $bitcoin1 = Bitcoin::find($compteD);
+        $bitcoin2 = Bitcoin::find($compteC);
+
+        $montantD = $bitcoin1->valeur - $montant;
+        $montantC = $bitcoin2->valeur + $montant;
+
+
+        if($montantD >= 0){
+            DB::table('bitcoins')
+            ->where('id', $compteD)
+            ->update(['valeur' => $montantD]);
+    
+            DB::table('bitcoins')
+            ->where('id', $compteC)
+            ->update(['valeur' => $montantC]);
+
+            return redirect()->back()->with('succes', 'Transaction réussie !');
+        }
+        else{
+            return redirect()->back()->with('error', 'Transaction échouée !');
+        }
+        
+
+        
     }
 
 }

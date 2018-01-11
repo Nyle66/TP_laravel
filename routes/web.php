@@ -31,6 +31,16 @@ Route::post('/addEtherium',array(
     'uses'=>'Controller@addEtheriumService'
 ));
 
+Route::get('/bitTrans',array(
+    'as'=>'bitTrans',
+    'uses'=>'Controller@bitTransMethod'
+));
+
+Route::post('/bitTransaction',array(
+    'as'=>'bitTransaction',
+    'uses'=>'Controller@bitTransactionMethod'
+));
+
 
 
 
