@@ -23,7 +23,29 @@ class Controller extends BaseController
     }
 
     public function bitTransMethod(){
-        return view('bitTrans');
+        $compte = Bitcoin::all();
+
+        $arrayCompte=array();
+        foreach ($compte as $c){
+            array_push($arrayCompte, $c->id);
+        }
+
+        return view('bitTrans', array(
+            'compteB' => $arrayCompte
+        ));
+    }
+
+    public function ethTransMethod(){
+        $compte = Etherium::all();
+
+        $arrayCompte=array();
+        foreach ($compte as $c){
+            array_push($arrayCompte, $c->id);
+        }
+
+        return view('ethTrans', array(
+            'compteE' => $arrayCompte
+        ));
     }
 
     public function addBitcoinService(addBitcoinRequest $request)
@@ -66,8 +88,8 @@ class Controller extends BaseController
         $r = $request->all();
 
         $montant = $r['montant'];
-        $compteD = $r['compteD'];
-        $compteC = $r['compteC'];
+        $compteD = $r['compteD'] +1;
+        $compteC = $r['compteC'] +1;
 
         $bitcoin1 = Bitcoin::find($compteD);
         $bitcoin2 = Bitcoin::find($compteC);
@@ -94,5 +116,40 @@ class Controller extends BaseController
 
         
     }
+
+    public function ethTransactionMethod(Request $request)
+    {
+        $r = $request->all();
+
+        $montant = $r['montant'];
+        $compteD = $r['compteD'] +1;
+        $compteC = $r['compteC'] +1;
+
+        $etherium1 = Etherium::find($compteD);
+        $etherium2 = Etherium::find($compteC);
+
+        $montantD = $etherium1->valeur - $montant;
+        $montantC = $etherium2->valeur + $montant;
+
+
+        if($montantD >= 0){
+            DB::table('etheriums')
+            ->where('id', $compteD)
+            ->update(['valeur' => $montantD]);
+    
+            DB::table('etheriums')
+            ->where('id', $compteC)
+            ->update(['valeur' => $montantC]);
+
+            return redirect()->back()->with('succes', 'Transaction réussie !');
+        }
+        else{
+            return redirect()->back()->with('error', 'Transaction échouée !');
+        }
+        
+
+        
+    }
+
 
 }

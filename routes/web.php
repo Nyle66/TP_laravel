@@ -41,6 +41,16 @@ Route::post('/bitTransaction',array(
     'uses'=>'Controller@bitTransactionMethod'
 ));
 
+Route::get('/ethTrans',array(
+    'as'=>'ethTrans',
+    'uses'=>'Controller@ethTransMethod'
+));
+
+Route::post('/ethTransaction',array(
+    'as'=>'ethTransaction',
+    'uses'=>'Controller@ethTransactionMethod'
+));
+
 
 
 

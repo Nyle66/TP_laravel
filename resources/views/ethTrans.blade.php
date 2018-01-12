@@ -21,16 +21,16 @@
                 <div class="panel-body">
                    
                     
-                    {{ Form::open(array('url'=>'bitTransaction')) }}
+                    {{ Form::open(array('url'=>'ethTransaction')) }}
                     
                         {{Form::label('compteD','Numéro du Compte à débiter : ')}}
-                        {{Form::select('compteD', $compteB )}}<br>
+                        {{Form::select('compteD', $compteE )}}<br>
 
                         {{Form::label('montant','Montant à transferer : ')}}
                         {{Form::number('montant')}}<br>
 
                         {{Form::label('compteC','Numéro du Compte à créditer : ')}}
-                        {{Form::select('compteC', $compteB )}}<br>
+                        {{Form::select('compteC', $compteE )}}<br>
             
                         {{Form::submit('Valider')}}
     
