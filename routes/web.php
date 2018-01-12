@@ -51,7 +51,10 @@ Route::post('/ethTransaction',array(
     'uses'=>'Controller@ethTransactionMethod'
 ));
 
-
+Route::get('/profil',array(
+    'as'=>'profil',
+    'uses'=>'Controller@profilMethod'
+));
 
 
 Auth::routes();

@@ -22,6 +22,15 @@ class Controller extends BaseController
         return view('addCompte');
     }
 
+    public function profilMethod(){
+
+        $profil = Users::find(1);
+
+        return view('profil', array(
+            'profil' => $profil
+        ));
+    }
+
     public function bitTransMethod(){
         $compte = Bitcoin::all();
 

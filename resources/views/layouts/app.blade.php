@@ -63,6 +63,12 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li>
+                                        <a href="{{ route('profil') }}">
+                                            Profil
+                                        </a>
+    
+                                    </li>
                                 </ul>
                             </li>
                         @endguest
