@@ -1,0 +1,32 @@
+/************* Commentaires Alfonso ************/
+
+Jeremy,
+
+Bravo pour cette performance. Tu n'as pas fait de seed soit dit en passant!
+
+Il faut me faire des seeds pour peupler la base de données.
+
+Évidemment ce n'est pas obligé mais ça permet d'avoir des volumes de données qui nous permet d'apprécier si le site
+marche bien ou pas. Évidemment Flo n'as pas fait de seed non plus! (palm face)
+
+Aussi quand on créé un compte on ne peut pas choisir le solde de ce compte. C'est pour ça qu'il faut seeder des comptes qui eux possède déjà un solde pour pouvoir faire un transfert au nouveaux comptes qu'on crée.
+
+Aussi il te manque les message de succès quand un transfert est effectué.
+
+Aussi il faut que les transfert puissent êtres des décimaux puisqu'un bitcoin peut se diviser jusqu'à 10^-8.
+Donc modifie la base de données et fait des seed.
+
+Une fois que tu fais ça essaie de me convertir le solde en dollars.
+
+Bravo pour tes efforts pendant la formation. Si tu as l'impression d'être un peut perdu c'est le cas de tout le monde
+Laravel c'est difficile mais si on se fait du mal pour apprendre celà ça vaut le coup.
+
+Il y a plein de job à pourvoir une fois qu'on maitrise un framework.
+
+J'espère que l'expérience te servira. Bravo pour en tout cas pour ton niveau dans slack aussi.
+Quand toi et flo vous tappez vite je sais que vous êtes sur slack LOL
+
+
+Bon en tout cas merci pour tes efforts et à la prochaine bière.
+
+Alfonso.
